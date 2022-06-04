@@ -1,0 +1,130 @@
+/* Tirando o espaçamento e certificando proporção */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* passando Fonte e alinhando tabuleiro  */
+body{
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #c7cdd3;
+}
+
+/* dando tamanho para o card, falando que ele é um item 3d e dando transition  */
+.card{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card_back, .card_front{
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 25px;
+   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.46);
+   backface-visibility: hidden;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+.card_front{
+    transform: rotateY(180deg);
+    background-color: #101c2c;
+}
+
+.card_back{
+    background-color: #007ba0;
+    font-size: 30px;
+    font-weight:1000;
+    color:#101c2c;
+    /* display: none; */
+}
+
+
+#gameOver{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 22, 22, 0.753);
+    color: white;
+    font-size: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    text-shadow: 3px 2px 1px #007ba0;
+}
+
+#restart{
+    padding: 20px;
+    font-size: 20px;
+    background-color: rgb(104, 104, 104);
+    border: none;
+    border-radius: 25px;
+    margin-top: 10px;
+    color: white;
+    border: solid 5px rgb(168, 168, 168);
+    text-shadow: 3px 2px 1px #007ba0;
+}
+
+#restart:hover{
+    transition-duration: 1s;
+    background-color: rgb(43, 43, 43);
+    border: solid 5px #007ba0;
+}
+
+
+#gameBoard{
+    max-width: 700px;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr ;
+    gap: 20px;
+}
+
+@media (max-width:425px) {
+    
+    #gameOver{
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .card{
+        width: 4rem;
+        height: 4rem;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform .5s;
+    }
+
+
+    #gameOver{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(22, 22, 22, 0.753);
+        color: white;
+        font-size: 30px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: 0;
+        text-shadow: 3px 2px 1px #007ba0;
+        text-align: center;
+    }
+}
